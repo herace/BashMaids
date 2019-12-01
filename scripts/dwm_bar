@@ -1,0 +1,13 @@
+
+status(){
+	acpi -b | awk '{print $3,$4," | "}' &&
+	date | awk '{print $4" "$3" "$2" ("$1") "$5}'
+
+}
+
+
+while :; do
+	xsetroot -name "$(status)"
+	sleep 1s
+done
+
