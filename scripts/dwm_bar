@@ -1,8 +1,8 @@
 
 status(){
-	acpi -b | awk '{print $3,$4," | "}' &&
+	ip address show | grep "wlp" | grep "inet" | awk '{print" | " $2}' &&
+	cat /sys/class/power_supply/BAT?/capacity | awk '{print " | BAT "$1"% | "}' &&
 	date | awk '{print $4" "$3" "$2" ("$1") "$5}'
-
 }
 
 
