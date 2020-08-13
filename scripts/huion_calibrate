@@ -1,0 +1,11 @@
+#!/bin/bash
+DEVICE=$(xinput | grep "Tablet Monitor Pen Pen (0)" | sed 's/Tablet Monitor Pen Pen (0)//' | awk '{print $3}' | sed 's/id=//')  
+
+#xinput map-to-output 26 HDMI-1
+xinput map-to-output $DEVICE HDMI-1
+
+#xinput map-to-output 18 HDMI-1
+#Make a notification when connected to device
+#echo $DEVICE
+
+
